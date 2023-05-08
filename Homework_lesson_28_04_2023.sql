@@ -3,11 +3,11 @@ SELECT
 streams.stream_id,
 streams.title,
 reactions.value,
-COUNT(*)
+COUNT(reactions.value) AS quantity_reactions
 FROM reactions
 LEFT JOIN streams ON reactions.stream_id=streams.stream_id
 WHERE streams.stream_id=1
-GROUP BY reactions.reaction_id;
+GROUP BY reactions.value;
 
 -- Вывести список стран, откуда идут пожертвования.
 SELECT
